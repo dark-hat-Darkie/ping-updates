@@ -1,4 +1,4 @@
-import { getPings } from '../../modules/historical/historical.service';
+import { getPings } from '../../../modules/historical/historical.service';
 import { PrismaClient } from '@prisma/client';
 
 // Mock the Prisma client

@@ -3,8 +3,7 @@ import cors from 'cors';
 import { config } from 'dotenv';
 import globalErrorMiddleware from './middlewares/globalErrorHandler';
 
-// Import routes
-import histocialRoutes from './modules/historical/historical.routes';
+import v1Routes from './modules/routes.v1';
 
 // Load environment variables
 config();
@@ -17,13 +16,10 @@ app.use(
         origin: '*',
     })
 );
+
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send('Hello World');
-});
-// Routes
-app.use('/historical', histocialRoutes);
+app.use('/api/v1', v1Routes);
 
 // Error handling middleware
 app.use(globalErrorMiddleware);
