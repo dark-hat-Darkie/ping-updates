@@ -37,7 +37,7 @@ jobs:
 
             # Generate test coverage reports (using Jest's built-in coverage support)
             - name: Generate coverage report
-              run: npm run coverage # Assumes you have a coverage script in package.json
+              run: npm run test:coverage # Assumes you have a coverage script in package.json
 
             # Upload coverage report (optional, to view results in GitHub)
             - name: Upload coverage results
