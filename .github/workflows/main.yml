@@ -1,0 +1,46 @@
+name: CI Pipeline
+
+on:
+    push:
+        branches:
+            - master # Or your default branch, e.g., 'master'
+    pull_request:
+        branches:
+            - master # Or your default branch, e.g., 'master'
+
+jobs:
+    ci:
+        runs-on: ubuntu-latest
+
+        steps:
+            # Checkout the repository
+            - name: Checkout code
+              uses: actions/checkout@v3
+
+            # Set up Node.js (if using Node.js)
+            - name: Set up Node.js
+              uses: actions/setup-node@v3
+              with:
+                  node-version: '18' # Set your Node.js version here
+
+            # Install dependencies
+            - name: Install dependencies
+              run: npm install
+
+            # Run linting checks (using ESLint in this case)
+            - name: Run linting
+              run: npm run lint # Assumes you have a lint script in package.json
+
+            # Run tests (using Jest in this case, modify if using a different testing framework)
+            - name: Run tests
+              run: npm run test
+
+            # Generate test coverage reports (using Jest's built-in coverage support)
+            - name: Generate coverage report
+              run: npm run coverage # Assumes you have a coverage script in package.json
+
+            # Upload coverage report (optional, to view results in GitHub)
+            - name: Upload coverage results
+              uses: codecov/codecov-action@v3
+              with:
+                  file: './coverage/lcov-report/index.html' # Adjust the file path if needed
