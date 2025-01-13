@@ -8,7 +8,7 @@ import { Server } from 'socket.io';
 const PORT = process.env.PORT || 3000;
 
 // Schedule the task to run every 5 minutes
-cron.schedule('*/1 * * * *', () => {
+cron.schedule('*/5 * * * *', () => {
     console.log('Pinging httpbin.org/anything...');
     pingHttpBin();
 });
