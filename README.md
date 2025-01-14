@@ -214,7 +214,9 @@ There is basically no security as this moment. But we can enable JWT / SAML auth
 
 # Testing Strategy
 
-Our express API has 3 layers:
+TDD strategy was followed during the development.
+
+Our express API has 4 layers:
 
 1. Router Layer
 2. Controller Layer
